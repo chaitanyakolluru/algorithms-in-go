@@ -1,7 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"algorithms-in-go/recursion"
+)
 
 func main() {
-	fmt.Println(sum_char_codes("chaitanya"))
+	fmt.Println(recursion.Simple(1))
 }
