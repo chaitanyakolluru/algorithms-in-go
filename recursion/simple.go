@@ -15,6 +15,16 @@ func Simple(n int) int {
 	// base case should be clear
 	// recurse then can be made simpler once we have base cases
 
+	// structuring
+
+	// base case
+	// define your base cases clearly
+
+	// actual recursing
+	// pre
+	// actual recurse function call
+	// post
+
 	// edge case
 	if n == 0 {
 		return 0

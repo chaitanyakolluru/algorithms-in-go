@@ -32,7 +32,9 @@ func Walk(maze [][]string, wall string, curr Point, end Point, seen [][]bool, pa
 		return false
 	}
 
+	// actual recursion
 	// 3 recurse steps
+
 	// pre
 	seen[curr.y][curr.x] = true
 	*path = append(*path, curr)
@@ -40,10 +42,7 @@ func Walk(maze [][]string, wall string, curr Point, end Point, seen [][]bool, pa
 	// recurse
 	for i := 0; i < len(dir); i++ {
 		xyentries := dir[i]
-		if Walk(maze, wall, Point{
-			x: curr.x + xyentries[0],
-			y: curr.y + xyentries[1],
-		}, end, seen, path) {
+		if Walk(maze, wall, Point{x: curr.x + xyentries[0], y: curr.y + xyentries[1]}, end, seen, path) {
 			return true
 		}
 	}
