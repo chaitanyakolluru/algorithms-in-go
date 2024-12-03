@@ -1,45 +1,45 @@
 package ds
 
-type QNode struct {
-	value int
-	next  *QNode
+type QNode[T any] struct {
+	value T
+	next  *QNode[T]
 }
 
-type Queue struct {
-	length int
-	head   *QNode
-	tail   *QNode
+type Queue[T any] struct {
+	Length int
+	Head   *QNode[T]
+	Tail   *QNode[T]
 }
 
-func (q *Queue) Enqueue(item int) {
-	q.length++
-	node := &QNode{value: item}
+func (q *Queue[T]) Enqueue(item T) {
+	q.Length++
+	node := &QNode[T]{value: item}
 
-	if q.tail == nil {
-		q.tail = node
-		q.head = node
+	if q.Tail == nil {
+		q.Tail = node
+		q.Head = node
 		return
 	}
 
-	q.tail.next = node
-	q.tail = node
+	q.Tail.next = node
+	q.Tail = node
 }
 
-func (q *Queue) Deque(item int) *QNode {
-	if q.head != nil {
+func (q *Queue[T]) Deque(item T) *QNode[T] {
+	if q.Head != nil {
 		return nil
 	}
 
-	head := q.head
-	q.head = head.next
-	q.length--
+	Head := q.Head
+	q.Head = Head.next
+	q.Length--
 
 	// free the memory if you are not working with a
 	// garbage collected object
 
-	return head
+	return Head
 }
 
-func (q *Queue) Peek() int {
-	return q.head.value
+func (q *Queue[T]) Peek() T {
+	return q.Head.value
 }
