@@ -1,8 +1,8 @@
 package ds
 
 type QNode[T any] struct {
-	value T
-	next  *QNode[T]
+	Value T
+	Next  *QNode[T]
 }
 
 type Queue[T any] struct {
@@ -13,7 +13,7 @@ type Queue[T any] struct {
 
 func (q *Queue[T]) Enqueue(item T) {
 	q.Length++
-	node := &QNode[T]{value: item}
+	node := &QNode[T]{Value: item}
 
 	if q.Tail == nil {
 		q.Tail = node
@@ -21,17 +21,17 @@ func (q *Queue[T]) Enqueue(item T) {
 		return
 	}
 
-	q.Tail.next = node
+	q.Tail.Next = node
 	q.Tail = node
 }
 
-func (q *Queue[T]) Deque(item T) *QNode[T] {
+func (q *Queue[T]) Deque() *QNode[T] {
 	if q.Head != nil {
 		return nil
 	}
 
 	Head := q.Head
-	q.Head = Head.next
+	q.Head = Head.Next
 	q.Length--
 
 	// free the memory if you are not working with a
@@ -41,5 +41,7 @@ func (q *Queue[T]) Deque(item T) *QNode[T] {
 }
 
 func (q *Queue[T]) Peek() T {
-	return q.Head.value
+	return q.Head.Value
 }
+
+func bfs() {}
