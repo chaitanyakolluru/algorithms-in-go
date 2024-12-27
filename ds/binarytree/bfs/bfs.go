@@ -10,6 +10,7 @@ import (
 // three variants under dfs package.
 
 // you use a stack in recursion with dfs and you use a queue with bfs
+// bfs does not preserve shape and structure of the binary tree
 func bfs(head binarytree.BinaryNode, needle int) bool {
 	q := ds.Queue[binarytree.BinaryNode]{}
 	q.Enqueue(head)

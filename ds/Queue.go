@@ -26,7 +26,7 @@ func (q *Queue[T]) Enqueue(item T) {
 }
 
 func (q *Queue[T]) Deque() *QNode[T] {
-	if q.Head != nil {
+	if q.Head == nil {
 		return nil
 	}
 
@@ -36,12 +36,9 @@ func (q *Queue[T]) Deque() *QNode[T] {
 
 	// free the memory if you are not working with a
 	// garbage collected object
-
 	return Head
 }
 
 func (q *Queue[T]) Peek() T {
 	return q.Head.Value
 }
-
-func bfs() {}
